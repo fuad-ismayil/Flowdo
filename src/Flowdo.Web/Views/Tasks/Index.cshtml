@@ -2,182 +2,304 @@
 @model IReadOnlyList<Flowdo.Web.Models.TaskItem>
 
 @{
-    ViewData["Title"] = "My Tasks";
+    Layout = null;
+
+    var total = Model.Count;
+    var todo = Model.Count(t => t.Status == "todo");
+    var active = Model.Count(t => t.Status == "in_progress");
+    var completed = Model.Count(t => t.Status == "done");
+
+    var completionPercent = total == 0
+        ? 0
+        : (int)Math.Round(completed * 100.0 / total);
 
     var lanes = new[]
     {
-        new { Status = "todo", Title = "To Do" },
-        new { Status = "in_progress", Title = "In Progress" },
-        new { Status = "done", Title = "Done" }
+        new { Status = "todo", Title = "To Do", Css = "todo" },
+        new { Status = "in_progress", Title = "In Progress", Css = "progress" },
+        new { Status = "done", Title = "Done", Css = "done" }
     };
 }
 
-<div class="container py-4">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1" />
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h1>My Tasks</h1>
-            <p class="text-muted">
-                Welcome, @User.Identity?.Name!
-            </p>
-        </div>
+    <title>My Tasks | Flowdo</title>
 
-        <a href="/" class="btn btn-outline-secondary">
-            Home
+    <link rel="stylesheet" href="~/css/flowdo.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+<div class="fd-app">
+
+    <header class="fd-header">
+        <a href="/tasks" class="fd-brand">
+            <span class="fd-brand-icon">F</span>
+            <span>flowdo<span class="fd-dot">.</span></span>
         </a>
-    </div>
 
-    @if (TempData["Success"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["Success"]
-        </div>
-    }
+        <div class="fd-profile">
+            <span class="fd-user-name">
+                @User.Identity?.Name
+            </span>
 
-    @if (TempData["Error"] != null)
-    {
-        <div class="alert alert-danger">
-            @TempData["Error"]
-        </div>
-    }
+            <span class="fd-avatar">
+                @((User.Identity?.Name ?? "U").Substring(0, 1).ToUpperInvariant())
+            </span>
 
-    <div class="card mb-4">
-        <div class="card-body">
-
-            <h5>Create New Task</h5>
-
-            <form asp-controller="Tasks"
-                  asp-action="Create"
-                  method="post">
-
+            <form action="/logout" method="post">
                 @Html.AntiForgeryToken()
-
-                <div class="mb-3">
-                    <label class="form-label">
-                        Title
-                    </label>
-
-                    <input name="Title"
-                           class="form-control"
-                           maxlength="160"
-                           required />
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">
-                        Description
-                    </label>
-
-                    <textarea name="Description"
-                              class="form-control"
-                              maxlength="3000"></textarea>
-                </div>
-
-                <button class="btn btn-primary"
-                        type="submit">
-                    Add Task
+                <button type="submit"
+                        class="fd-logout">
+                    Log out
                 </button>
             </form>
         </div>
-    </div>
+    </header>
 
-    <div class="row g-3">
+    <main class="fd-main">
 
-        @foreach (var lane in lanes)
+        <section class="fd-intro">
+            <div>
+                <span class="fd-eyebrow">MY WORKSPACE</span>
+                <h1>My Tasks</h1>
+                <p>Manage your work, one task at a time.</p>
+            </div>
+            <span class="fd-date">
+                @DateTime.Now.ToString("dd MMM yyyy")
+            </span>
+        </section>
+
+        @if (TempData["Success"] != null)
         {
-            var items = Model
-                .Where(t => t.Status == lane.Status)
-                .ToList();
-
-            <div class="col-12 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <strong>@lane.Title</strong>
-                        <span class="text-muted">
-                            (@items.Count)
-                        </span>
-                    </div>
-
-                    <div class="card-body">
-
-                        @if (items.Count == 0)
-                        {
-                            <p class="text-muted">
-                                No tasks here yet.
-                            </p>
-                        }
-
-                        @foreach (var task in items)
-                        {
-                            <div class="card mb-3">
-                                <div class="card-body">
-
-                                    <h6>@task.Title</h6>
-
-                                    <p class="text-muted small">
-                                        @task.Description
-                                    </p>
-
-                                    @if (task.Status != "done")
-                                    {
-                                        <a asp-controller="Tasks"
-                                           asp-action="Edit"
-                                           asp-route-id="@task.Id"
-                                           class="btn btn-sm btn-outline-primary mb-2">
-                                            Edit
-                                        </a>
-
-                                        <form asp-controller="Tasks"
-                                              asp-action="ChangeStatus"
-                                              asp-route-id="@task.Id"
-                                              method="post"
-                                              class="mb-2">
-
-                                            @Html.AntiForgeryToken()
-
-                                            @if (task.Status == "todo")
-                                            {
-                                                <button type="submit"
-                                                        name="nextStatus"
-                                                        value="in_progress"
-                                                        class="btn btn-sm btn-warning">
-                                                    Start
-                                                </button>
-                                            }
-
-                                            <button type="submit"
-                                                    name="nextStatus"
-                                                    value="done"
-                                                    class="btn btn-sm btn-success">
-                                                Complete
-                                            </button>
-                                        </form>
-                                    }
-
-                                    @if (task.Status == "todo" &&
-                                         !task.HasStarted)
-                                    {
-                                        <form asp-controller="Tasks"
-                                              asp-action="Delete"
-                                              asp-route-id="@task.Id"
-                                              method="post">
-
-                                            @Html.AntiForgeryToken()
-
-                                            <button type="submit"
-                                                    class="btn btn-sm btn-outline-danger"
-                                                    onclick="return confirm('Delete this task?')">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    }
-
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
+            <div class="fd-alert fd-success" role="status">
+                @TempData["Success"]
             </div>
         }
-    </div>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="fd-alert fd-error" role="alert">
+                @TempData["Error"]
+            </div>
+        }
+
+        <section class="fd-stats">
+            <div class="fd-stat">
+                <span>Total Tasks</span>
+                <strong>@total</strong>
+                <small>All your tasks</small>
+            </div>
+
+            <div class="fd-stat">
+                <span>To Do</span>
+                <strong>@todo</strong>
+                <small>Ready to start</small>
+            </div>
+
+            <div class="fd-stat">
+                <span>In Progress</span>
+                <strong>@active</strong>
+                <small>Currently active</small>
+            </div>
+
+            <div class="fd-stat">
+                <span>Completed</span>
+                <strong>@completed</strong>
+                <small>Tasks finished</small>
+            </div>
+        </section>
+
+        <section class="fd-progress-section">
+            <div class="fd-progress-label">
+                <span>Overall progress</span>
+                <strong>@completionPercent%</strong>
+            </div>
+
+            <progress class="fd-progress-bar"
+                      value="@completed"
+                      max="@(total == 0 ? 1 : total)">
+                @completionPercent%
+            </progress>
+        </section>
+
+        <section class="fd-create">
+            <div class="fd-section-header">
+                <div>
+                    <h2>Create a new task</h2>
+                    <p>Add something to your workspace.</p>
+                </div>
+            </div>
+
+            <form asp-controller="Tasks"
+                  asp-action="Create"
+                  method="post"
+                  class="fd-create-form">
+
+                @Html.AntiForgeryToken()
+
+                <div class="fd-form-group">
+                    <label for="task-title">Task title</label>
+                    <input id="task-title"
+                           name="Title"
+                           maxlength="160"
+                           placeholder="What needs to be done?"
+                           required />
+                </div>
+
+                <div class="fd-form-group">
+                    <label for="task-description">
+                        Description (optional)
+                    </label>
+                    <textarea id="task-description"
+                              name="Description"
+                              maxlength="3000"
+                              rows="2"
+                              placeholder="Add more details..."></textarea>
+                </div>
+
+                <button type="submit" class="fd-button fd-primary">
+                    + Create task
+                </button>
+            </form>
+        </section>
+
+        <section class="fd-board-section">
+            <div class="fd-section-header">
+                <div>
+                    <h2>Task board</h2>
+                    <p>Track everything from start to finish.</p>
+                </div>
+                <span class="fd-board-count">@total tasks</span>
+            </div>
+
+            <div class="fd-board">
+
+                @foreach (var lane in lanes)
+                {
+                    var items = Model
+                        .Where(t => t.Status == lane.Status)
+                        .ToList();
+
+                    <div class="fd-lane @lane.Css">
+
+                        <div class="fd-lane-header">
+                            <div class="fd-lane-title">
+                                <span class="fd-status-dot"></span>
+                                <h3>@lane.Title</h3>
+                            </div>
+
+                            <span class="fd-count">
+                                @items.Count
+                            </span>
+                        </div>
+
+                        <div class="fd-lane-content">
+
+                            @if (items.Count == 0)
+                            {
+                                <div class="fd-empty">
+                                    <p>No tasks here yet.</p>
+                                </div>
+                            }
+
+                            @foreach (var task in items)
+                            {
+                                <article class="fd-task-card">
+
+                                    <h4>@task.Title</h4>
+
+                                    @if (!string.IsNullOrWhiteSpace(
+                                        task.Description))
+                                    {
+                                        <p class="fd-task-desc">
+                                            @task.Description
+                                        </p>
+                                    }
+
+                                    <div class="fd-task-footer">
+
+                                        @if (task.Status == "done")
+                                        {
+                                            <span class="fd-completed">
+                                                ✓ Completed
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <div class="fd-actions">
+
+                                                <a asp-controller="Tasks"
+                                                   asp-action="Edit"
+                                                   asp-route-id="@task.Id"
+                                                   class="fd-button fd-outline">
+                                                    Edit
+                                                </a>
+
+                                                <form asp-controller="Tasks"
+                                                      asp-action="ChangeStatus"
+                                                      asp-route-id="@task.Id"
+                                                      method="post">
+
+                                                    @Html.AntiForgeryToken()
+
+                                                    @if (task.Status == "todo")
+                                                    {
+                                                        <button type="submit"
+                                                                name="nextStatus"
+                                                                value="in_progress"
+                                                                class="fd-button fd-secondary">
+                                                            Start
+                                                        </button>
+                                                    }
+
+                                                    <button type="submit"
+                                                            name="nextStatus"
+                                                            value="done"
+                                                            class="fd-button fd-complete-btn">
+                                                        Done
+                                                    </button>
+                                                </form>
+
+                                                @if (task.Status == "todo"
+                                                     && !task.HasStarted)
+                                                {
+                                                    <form asp-controller="Tasks"
+                                                          asp-action="Delete"
+                                                          asp-route-id="@task.Id"
+                                                          method="post"
+                                                          onsubmit="return confirm('Delete this task?')">
+
+                                                        @Html.AntiForgeryToken()
+
+                                                        <button type="submit"
+                                                                class="fd-button fd-danger">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </article>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="fd-footer">
+        Flowdo · Personal Task Management
+    </footer>
+
 </div>
+</body>
+</html>

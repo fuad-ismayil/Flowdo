@@ -1,0 +1,534 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f8fafc;
+    font-synthesis: none;
+}
+
+body {
+    margin: 0;
+    background: #f8fafc;
+    color: #172033;
+    line-height: 1.5;
+}
+
+button, input, textarea {
+    font: inherit;
+}
+
+button, a, input, textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid #818cf8;
+    outline-offset: 3px;
+}
+
+.fd-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+
+.fd-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px max(24px, calc((100% - 1200px) / 2));
+    background: #fff;
+    border-bottom: 1px solid #e9edf3;
+}
+
+.fd-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 23px;
+    letter-spacing: -1px;
+}
+
+.fd-brand-icon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 19px;
+}
+
+.fd-dot {
+    color: #6366f1;
+}
+
+.fd-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.fd-user-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fd-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #eef2ff;
+    color: #4338ca;
+    font-weight: 700;
+}
+
+.fd-logout {
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 9px 13px;
+    background: #fff;
+    color: #475569;
+}
+
+/* MAIN */
+
+.fd-main {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 44px 24px 70px;
+    flex: 1;
+}
+
+.fd-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.fd-eyebrow {
+    color: #6366f1;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.fd-intro h1 {
+    margin: 7px 0 3px;
+    font-size: clamp(28px, 4vw, 36px);
+    letter-spacing: -1.3px;
+}
+
+.fd-intro p,
+.fd-section-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.fd-date {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* STATISTICS */
+
+.fd-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.fd-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e9edf3;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.fd-stat > span {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.fd-stat strong {
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.fd-stat small {
+    color: #94a3b8;
+}
+
+/* PROGRESS */
+
+.fd-progress-section {
+    background: #fff;
+    border: 1px solid #e9edf3;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 30px;
+}
+
+.fd-progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.fd-progress-bar {
+    display: block;
+    width: 100%;
+    height: 9px;
+    appearance: none;
+    border: 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.fd-progress-bar::-webkit-progress-bar {
+    background: #eef2f7;
+}
+
+.fd-progress-bar::-webkit-progress-value {
+    background: #6366f1;
+    border-radius: 20px;
+}
+
+.fd-progress-bar::-moz-progress-bar {
+    background: #6366f1;
+    border-radius: 20px;
+}
+
+/* SECTION */
+
+.fd-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.fd-section-header h2 {
+    margin: 0 0 5px;
+    font-size: 19px;
+    letter-spacing: -.4px;
+}
+
+/* CREATE FORM */
+
+.fd-create {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e9edf3;
+    border-radius: 18px;
+    margin-bottom: 36px;
+}
+
+.fd-create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fd-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.fd-form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.fd-form-group input,
+.fd-form-group textarea {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    color: #172033;
+    outline: none;
+    resize: vertical;
+}
+
+.fd-form-group input:focus,
+.fd-form-group textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px #6366f120;
+}
+
+.fd-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 650;
+    white-space: nowrap;
+    transition: background .15s, transform .15s;
+}
+
+.fd-button:active {
+    transform: scale(.98);
+}
+
+.fd-primary {
+    align-self: flex-start;
+    padding: 11px 19px;
+    background: #4f46e5;
+    color: #fff;
+}
+
+.fd-primary:hover {
+    background: #4338ca;
+}
+
+/* KANBAN */
+
+.fd-board-count {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.fd-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.fd-lane {
+    background: #f1f5f9;
+    border: 1px solid #e7ecf3;
+    border-radius: 16px;
+    padding: 14px;
+    min-width: 0;
+}
+
+.fd-lane-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 4px;
+}
+
+.fd-lane-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.fd-lane-title h3 {
+    margin: 0;
+    font-size: 13px;
+}
+
+.fd-status-dot {
+    width: 8px;
+    height: 8px;
+    background: #94a3b8;
+    border-radius: 50%;
+}
+
+.fd-lane.progress .fd-status-dot {
+    background: #f59e0b;
+}
+
+.fd-lane.done .fd-status-dot {
+    background: #16a34a;
+}
+
+.fd-count {
+    background: #e2e8f0;
+    border-radius: 7px;
+    padding: 3px 9px;
+    font-size: 11px;
+}
+
+.fd-lane-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fd-task-card {
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e5eaf1;
+    border-radius: 12px;
+    padding: 17px;
+    overflow-wrap: anywhere;
+    box-shadow: 0 2px 8px #0f172a05;
+}
+
+.fd-task-card h4 {
+    font-size: 14px;
+    margin: 0 0 8px;
+}
+
+.fd-task-desc {
+    margin: 0 0 18px;
+    font-size: 12px;
+    color: #64748b;
+    white-space: pre-wrap;
+}
+
+.fd-task-footer {
+    margin-top: 18px;
+}
+
+.fd-actions,
+.fd-actions form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.fd-outline {
+    border-color: #e2e8f0;
+    color: #475569;
+}
+
+.fd-secondary {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.fd-complete-btn {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.fd-danger {
+    background: #fff1f2;
+    color: #be123c;
+}
+
+.fd-completed {
+    font-size: 12px;
+    font-weight: 700;
+    color: #15803d;
+}
+
+.fd-empty {
+    padding: 28px 12px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+}
+
+/* FEEDBACK */
+
+.fd-alert {
+    padding: 13px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.fd-success {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.fd-error {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+.fd-footer {
+    padding: 24px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    border-top: 1px solid #e9edf3;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .fd-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fd-board {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .fd-header {
+        padding: 14px 16px;
+    }
+
+    .fd-main {
+        padding: 28px 16px 50px;
+    }
+
+    .fd-user-name,
+    .fd-date {
+        display: none;
+    }
+
+    .fd-profile {
+        gap: 8px;
+    }
+
+    .fd-stat {
+        padding: 15px;
+    }
+
+    .fd-stat strong {
+        font-size: 25px;
+    }
+
+    .fd-create {
+        padding: 18px;
+    }
+
+    .fd-section-header h2 {
+        font-size: 17px;
+    }
+}
