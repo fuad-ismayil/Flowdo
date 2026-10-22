@@ -1,0 +1,16 @@
+**/bin
+**/obj
+**/.vs
+**/.vscode
+
+.git
+.github
+
+.env
+.env.*
+**/secrets.json
+**/appsettings.Local.json
+
+*.user
+*.suo
+*.log

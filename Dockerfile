@@ -1,19 +1,20 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+
 WORKDIR /src
 
-COPY src/Flowdo.Web/Flowdo.Web.csproj src/Flowdo.Web/
-RUN dotnet restore src/Flowdo.Web/Flowdo.Web.csproj
+# Copy only application source
+COPY src/Flowdo.Web/ ./src/Flowdo.Web/
 
-COPY src/Flowdo.Web/ src/Flowdo.Web/
-
+# Restore and publish inside Linux
 RUN dotnet publish src/Flowdo.Web/Flowdo.Web.csproj \
     -c Release \
-    -o /app/publish \
-    --no-restore
+    -o /app/publish
 
-FROM mcr.microsoft.com/dotnet/aspnet:10.0
+# Runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
 
 WORKDIR /app
+
 COPY --from=build /app/publish .
 
 ENV ASPNETCORE_URLS=http://0.0.0.0:10000
