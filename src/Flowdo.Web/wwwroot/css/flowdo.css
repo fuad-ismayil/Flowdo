@@ -532,3 +532,442 @@ a {
         font-size: 17px;
     }
 }
+
+/* ========================================
+   FLOWDO LANDING PAGE
+======================================== */
+
+.fd-landing-nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fd-landing-nav > a:first-child {
+    color: #64748b;
+}
+
+.fd-landing-main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    flex: 1;
+}
+
+/* HERO */
+
+.fd-hero {
+    min-height: 620px;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 52px;
+    padding: 80px 0 100px;
+}
+
+.fd-hero-tag {
+    display: inline-block;
+    padding: 8px 13px;
+    border: 1px solid #c7d2fe;
+    border-radius: 30px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.fd-hero h1 {
+    margin: 25px 0;
+    font-size: clamp(44px, 5.2vw, 72px);
+    line-height: 1.08;
+    letter-spacing: -3px;
+    font-weight: 800;
+}
+
+.fd-hero h1 span {
+    color: #6366f1;
+}
+
+.fd-hero-description {
+    max-width: 470px;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.fd-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.fd-hero-btn {
+    padding: 14px 22px;
+    font-size: 13px;
+}
+
+.fd-hero-note {
+    margin-top: 22px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* PREVIEW */
+
+.fd-hero-preview {
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    box-shadow:
+        0 25px 70px rgba(79,70,229,.09),
+        0 3px 12px rgba(15,23,42,.035);
+    transform: rotate(-1.5deg);
+}
+
+.fd-preview-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.fd-preview-label {
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #818cf8;
+}
+
+.fd-preview-top h3 {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.fd-preview-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: #4f46e5;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+
+.fd-preview-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 10px;
+}
+
+.fd-preview-lane {
+    min-height: 185px;
+    padding: 10px;
+    border-radius: 11px;
+    background: #f1f5f9;
+    min-width: 0;
+}
+
+.fd-preview-lane-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 13px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.fd-preview-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #94a3b8;
+}
+
+.fd-preview-dot.amber {
+    background: #f59e0b;
+}
+
+.fd-preview-dot.green {
+    background: #22c55e;
+}
+
+.fd-preview-task {
+    padding: 12px 9px;
+    margin-bottom: 9px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #e9edf3;
+    font-size: 10px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.fd-preview-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+/* FEATURES */
+
+.fd-features {
+    padding: 40px 0 100px;
+}
+
+.fd-features-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.fd-features-heading h2 {
+    font-size: clamp(28px,4vw,40px);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    margin: 14px 0;
+}
+
+.fd-features-heading p {
+    color: #64748b;
+}
+
+.fd-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 18px;
+}
+
+.fd-feature-card {
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e9edf3;
+    border-radius: 18px;
+}
+
+.fd-feature-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 23px;
+    margin-bottom: 22px;
+}
+
+.fd-feature-card h3 {
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.fd-feature-card p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* FINAL CTA */
+
+.fd-final-cta {
+    margin-bottom: 90px;
+    padding: 65px 24px;
+    border-radius: 24px;
+    text-align: center;
+    background: #eef2ff;
+}
+
+.fd-final-cta h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin: 0 0 12px;
+}
+
+.fd-final-cta p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .fd-hero {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 70px 0;
+    }
+
+    .fd-hero-preview {
+        transform: none;
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .fd-feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .fd-landing-main {
+        padding: 0 16px;
+    }
+
+    .fd-landing-nav {
+        gap: 12px;
+    }
+
+    .fd-landing-nav > a:first-child {
+        display: none;
+    }
+
+    .fd-hero {
+        padding: 50px 0 60px;
+    }
+
+    .fd-hero h1 {
+        font-size: 43px;
+        letter-spacing: -2px;
+    }
+
+    .fd-hero-description {
+        font-size: 14px;
+    }
+
+    .fd-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fd-hero-preview {
+        padding: 14px;
+    }
+
+    .fd-preview-board {
+        gap: 6px;
+    }
+
+    .fd-preview-lane {
+        padding: 7px;
+    }
+
+    .fd-preview-lane-title {
+        font-size: 8px;
+    }
+
+    .fd-preview-task {
+        padding: 9px 6px;
+        font-size: 9px;
+    }
+
+    .fd-features {
+        padding-bottom: 60px;
+    }
+
+    .fd-final-cta {
+        padding: 45px 18px;
+        margin-bottom: 50px;
+    }
+}
+
+
+/* ========================================
+   FLOWDO EDIT TASK PAGE
+======================================== */
+
+.fd-edit-main {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 70px 24px;
+    flex: 1;
+}
+
+.fd-edit-heading {
+    margin-bottom: 30px;
+}
+
+.fd-edit-heading h1 {
+    font-size: 34px;
+    letter-spacing: -1.2px;
+    margin: 12px 0 7px;
+}
+
+.fd-edit-heading p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.fd-edit-card {
+    background: #fff;
+    padding: 32px;
+    border: 1px solid #e9edf3;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px #0f172a06;
+}
+
+.fd-edit-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fd-edit-description textarea {
+    min-height: 145px;
+}
+
+.fd-edit-notice {
+    padding: 13px 16px;
+    border-radius: 10px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.fd-edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.fd-validation {
+    color: #dc2626;
+    font-size: 12px;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+@media (max-width: 520px) {
+    .fd-edit-main {
+        padding: 40px 16px;
+    }
+
+    .fd-edit-card {
+        padding: 20px;
+    }
+
+    .fd-edit-heading h1 {
+        font-size: 28px;
+    }
+
+    .fd-edit-actions {
+        flex-direction: column-reverse;
+    }
+
+    .fd-edit-actions .fd-button {
+        width: 100%;
+    }
+}

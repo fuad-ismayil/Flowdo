@@ -1,41 +1,242 @@
 ﻿@{
-    ViewData["Title"] = "Flowdo";
+    Layout = null;
+    ViewData["Title"] = "Flowdo | Make progress every day";
+
+    var isAuthenticated =
+        User.Identity?.IsAuthenticated == true;
 }
 
-<div class="text-center mt-5">
-    <h1>Welcome to Flowdo</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1" />
 
-    <p>Your personal task management workspace.</p>
+    <meta name="description"
+          content="Flowdo is your personal task management workspace. Organize tasks, track progress and get things done." />
 
-    @if (User.Identity?.IsAuthenticated == true)
-    {
-        <h3>Welcome, @User.Identity.Name!</h3>
+    <title>@ViewData["Title"]</title>
 
-        <a href="/account/me"
-           class="btn btn-primary">
-            My Profile
+    <link rel="stylesheet"
+          href="~/css/flowdo.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+<div class="fd-app">
+
+    <header class="fd-header">
+        <a href="/" class="fd-brand">
+            <span class="fd-brand-icon">F</span>
+            <span>flowdo<span class="fd-dot">.</span></span>
         </a>
-        <a href="/tasks" class="btn btn-primary">
-    My Tasks
-</a>
 
-        <form action="/logout"
-              method="post"
-              class="mt-3">
+        <nav class="fd-landing-nav" aria-label="Main navigation">
+            <a href="#features">Features</a>
 
-            @Html.AntiForgeryToken()
+            @if (isAuthenticated)
+            {
+                <a href="/tasks" class="fd-button fd-primary">
+                    My Dashboard
+                </a>
+            }
+            else
+            {
+                <a href="/login" class="fd-button fd-primary">
+                    Sign in
+                </a>
+            }
+        </nav>
+    </header>
 
-            <button type="submit"
-                    class="btn btn-outline-danger">
-                Logout
-            </button>
-        </form>
-    }
-    else
-    {
-        <a href="/login"
-           class="btn btn-primary">
-            Continue with Google
-        </a>
-    }
+    <main class="fd-landing-main">
+
+        <section class="fd-hero">
+
+            <div class="fd-hero-content">
+                <span class="fd-hero-tag">
+                    YOUR PERSONAL PRODUCTIVITY SPACE
+                </span>
+
+                <h1>
+                    Less chaos.<br />
+                    <span>More progress.</span>
+                </h1>
+
+                <p class="fd-hero-description">
+                    Turn your plans into progress.
+                    Organize tasks, stay focused and
+                    keep everything moving in one
+                    simple workspace.
+                </p>
+
+                <div class="fd-hero-actions">
+                    @if (isAuthenticated)
+                    {
+                        <a href="/tasks"
+                           class="fd-button fd-primary fd-hero-btn">
+                            Open Dashboard →
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="/login"
+                           class="fd-button fd-primary fd-hero-btn">
+                            Continue with Google →
+                        </a>
+                    }
+
+                    <a href="#features"
+                       class="fd-button fd-outline fd-hero-btn">
+                        Explore Features
+                    </a>
+                </div>
+
+                <p class="fd-hero-note">
+                    No passwords. No complicated setup.
+                    Just your Google account.
+                </p>
+            </div>
+
+            <div class="fd-hero-preview"
+                 aria-label="Example Flowdo task board">
+
+                <div class="fd-preview-top">
+                    <div>
+                        <span class="fd-preview-label">
+                            WORKSPACE PREVIEW
+                        </span>
+                        <h3>My Tasks</h3>
+                    </div>
+
+                    <span class="fd-preview-avatar">F</span>
+                </div>
+
+                <div class="fd-preview-board">
+
+                    <div class="fd-preview-lane">
+                        <div class="fd-preview-lane-title">
+                            <span class="fd-preview-dot"></span>
+                            To Do
+                        </div>
+
+                        <div class="fd-preview-task">
+                            Learn Dapper
+                        </div>
+
+                        <div class="fd-preview-task">
+                            Plan next week
+                        </div>
+                    </div>
+
+                    <div class="fd-preview-lane">
+                        <div class="fd-preview-lane-title">
+                            <span class="fd-preview-dot amber"></span>
+                            In Progress
+                        </div>
+
+                        <div class="fd-preview-task">
+                            Build Flowdo
+                        </div>
+                    </div>
+
+                    <div class="fd-preview-lane">
+                        <div class="fd-preview-lane-title">
+                            <span class="fd-preview-dot green"></span>
+                            Done
+                        </div>
+
+                        <div class="fd-preview-task">
+                            ✓ Google Login
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="fd-preview-bottom">
+                    <span>Simple. Organized. Focused.</span>
+                    <span>↗</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="features" class="fd-features">
+
+            <div class="fd-features-heading">
+                <span class="fd-eyebrow">
+                    MADE FOR FOCUS
+                </span>
+
+                <h2>Everything you need.<br />
+                    Nothing you don't.</h2>
+
+                <p>
+                    A simple way to organize your
+                    everyday tasks.
+                </p>
+            </div>
+
+            <div class="fd-feature-grid">
+
+                <article class="fd-feature-card">
+                    <span class="fd-feature-icon">✓</span>
+                    <h3>Stay organized</h3>
+                    <p>
+                        Keep every task in one place.
+                        Create, update and manage your
+                        daily work.
+                    </p>
+                </article>
+
+                <article class="fd-feature-card">
+                    <span class="fd-feature-icon">↗</span>
+                    <h3>Track your progress</h3>
+                    <p>
+                        Move between To Do, In Progress
+                        and Done as your work advances.
+                    </p>
+                </article>
+
+                <article class="fd-feature-card">
+                    <span class="fd-feature-icon">♙</span>
+                    <h3>Your private workspace</h3>
+                    <p>
+                        Sign in securely with Google
+                        and manage your personal tasks.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="fd-final-cta">
+            <h2>Ready to make progress?</h2>
+            <p>Start organizing your tasks today.</p>
+
+            @if (isAuthenticated)
+            {
+                <a href="/tasks"
+                   class="fd-button fd-primary fd-hero-btn">
+                    Go to My Tasks →
+                </a>
+            }
+            else
+            {
+                <a href="/login"
+                   class="fd-button fd-primary fd-hero-btn">
+                    Get Started with Google →
+                </a>
+            }
+        </section>
+
+    </main>
+
+    <footer class="fd-footer">
+        Flowdo · Built for better productivity
+    </footer>
+
 </div>
+</body>
+</html>

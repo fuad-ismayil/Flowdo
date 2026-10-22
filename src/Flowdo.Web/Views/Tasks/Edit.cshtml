@@ -1,62 +1,116 @@
 @model Flowdo.Web.ViewModels.EditTaskInput
 
 @{
-    ViewData["Title"] = "Edit Task";
+    Layout = null;
+    ViewData["Title"] = "Edit Task | Flowdo";
 }
 
-<div class="container py-4">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
 
-    <h1>Edit Task</h1>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1" />
 
-    <p class="text-muted">
-        Editing a task will reset its status to To Do.
-    </p>
+    <title>@ViewData["Title"]</title>
 
-    <form asp-controller="Tasks"
-          asp-action="Edit"
-          asp-route-id="@Model.Id"
-          method="post">
+    <link rel="stylesheet"
+          href="~/css/flowdo.css"
+          asp-append-version="true" />
+</head>
 
-        @Html.AntiForgeryToken()
+<body>
+<div class="fd-app">
 
-        <input asp-for="Id" type="hidden" />
-
-        <div asp-validation-summary="All"
-             class="text-danger"></div>
-
-        <div class="mb-3">
-            <label asp-for="Title"
-                   class="form-label"></label>
-
-            <input asp-for="Title"
-                   class="form-control"
-                   maxlength="160" />
-
-            <span asp-validation-for="Title"
-                  class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Description"
-                   class="form-label"></label>
-
-            <textarea asp-for="Description"
-                      class="form-control"
-                      maxlength="3000"></textarea>
-
-            <span asp-validation-for="Description"
-                  class="text-danger"></span>
-        </div>
-
-        <button type="submit"
-                class="btn btn-primary">
-            Save Changes
-        </button>
-
-        <a href="/tasks"
-           class="btn btn-secondary">
-            Cancel
+    <header class="fd-header">
+        <a href="/tasks" class="fd-brand">
+            <span class="fd-brand-icon">F</span>
+            <span>flowdo<span class="fd-dot">.</span></span>
         </a>
-    </form>
+
+        <a href="/tasks" class="fd-button fd-outline">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <main class="fd-edit-main">
+
+        <div class="fd-edit-heading">
+            <span class="fd-eyebrow">MY WORKSPACE</span>
+            <h1>Edit task</h1>
+            <p>
+                Update your task details.
+                Editing resets its status to To Do.
+            </p>
+        </div>
+
+        <div class="fd-edit-card">
+
+            <form asp-controller="Tasks"
+                  asp-action="Edit"
+                  asp-route-id="@Model.Id"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input asp-for="Id" type="hidden" />
+
+                <div asp-validation-summary="All"
+                     class="fd-validation"></div>
+
+                <div class="fd-form-group">
+                    <label asp-for="Title">
+                        Task title
+                    </label>
+
+                    <input asp-for="Title"
+                           maxlength="160"
+                           required />
+
+                    <span asp-validation-for="Title"
+                          class="fd-validation"></span>
+                </div>
+
+                <div class="fd-form-group fd-edit-description">
+                    <label asp-for="Description">
+                        Description
+                    </label>
+
+                    <textarea asp-for="Description"
+                              rows="6"
+                              maxlength="3000"></textarea>
+
+                    <span asp-validation-for="Description"
+                          class="fd-validation"></span>
+                </div>
+
+                <div class="fd-edit-notice">
+                    Editing this task will move it
+                    back to the To Do column.
+                </div>
+
+                <div class="fd-edit-actions">
+                    <a href="/tasks"
+                       class="fd-button fd-outline">
+                        Cancel
+                    </a>
+
+                    <button type="submit"
+                            class="fd-button fd-primary">
+                        Save changes
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+    <footer class="fd-footer">
+        Flowdo · Personal Task Management
+    </footer>
 
 </div>
+</body>
+</html>
