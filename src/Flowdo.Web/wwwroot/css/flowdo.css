@@ -971,3 +971,51 @@ a {
         width: 100%;
     }
 }
+.fd-brand-logo {
+    display: block;
+    width: 165px;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Flowdo Creator Signature */
+
+.fd-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.fd-signature {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.fd-signature a {
+    color: #4f46e5;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.fd-signature a:hover {
+    color: #3730a3;
+    text-decoration: underline;
+}
+
+.fd-heart {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.fd-signature:hover .fd-heart {
+    transform: scale(1.2);
+}
+
+.fd-copyright {
+    font-size: 11px;
+    color: #94a3b8;
+}

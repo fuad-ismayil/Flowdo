@@ -22,7 +22,6 @@ C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\scopedcss\Views\Sh
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\scopedcss\bundle\Flowdo.Web.styles.css
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\scopedcss\projectbundle\Flowdo.Web.bundle.scp.css
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\jyyxoxcii3-{0}-b9sayid5wm-b9sayid5wm.gz
-C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\li7ij8wc3w-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\si5dzt3j20-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\xiqpsy7pl6-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\2lfbsfwie1-{0}-c2jlpeoesf-c2jlpeoesf.gz
@@ -100,4 +99,9 @@ C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\bin\Debug\net10.0\Npgsql.dll
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\Flowdo.Web.csproj.AssemblyReference.cache
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\Flowdo.Web.csproj.Up2Date
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Google.dll
-C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\tayv2dob37-{0}-h6hromxqd5-h6hromxqd5.gz
+C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\Flowdo.Web.sourcelink.json
+C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\li7ij8wc3w-{0}-ijygn4kuqp-ijygn4kuqp.gz
+C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\e3rn0il1vv-{0}-t2e566j8s0-t2e566j8s0.gz
+C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\h6a7s7hjlv-{0}-1rgv4ehah3-1rgv4ehah3.gz
+C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\tayv2dob37-{0}-3hsj5b16tp-3hsj5b16tp.gz
+C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\compressed\dhefy5vgtl-{0}-1rgv4ehah3-1rgv4ehah3.gz

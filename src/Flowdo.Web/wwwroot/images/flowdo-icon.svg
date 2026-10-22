@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="80" viewBox="0 0 330 80" role="img" aria-labelledby="title">
+  <title id="title">Flowdo logo</title>
+  <g transform="translate(8 8)">
+    <rect width="64" height="64" rx="17" fill="#4F46E5"/>
+    <path d="M19 18.5H46" stroke="white" stroke-width="7" stroke-linecap="round"/>
+    <path d="M19 18.5V46" stroke="white" stroke-width="7" stroke-linecap="round"/>
+    <path d="M20 32.5H38" stroke="white" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="44.5" cy="44.5" r="4.5" fill="#A5F3FC"/>
+  </g>
+  <text x="88" y="57" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="51" letter-spacing="-2.5" font-weight="800" fill="#172033">flowdo</text>
+  <circle cx="260" cy="52" r="5.5" fill="#6366F1"/>
+</svg>

@@ -100,3 +100,11 @@ dotnet run --project src/Flowdo.Web --launch-profile https
 ## License
 
 License to be determined.
+
+## Author
+
+Developed by **Fuad İsmayıl**.
+
+GitHub: [@fuad-ismayil](https://github.com/fuad-ismayil)
+
+Made with ❤️

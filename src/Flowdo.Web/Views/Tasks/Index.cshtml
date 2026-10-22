@@ -30,6 +30,17 @@
 
     <title>My Tasks | Flowdo</title>
 
+    <link rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg" />
+
+<link rel="alternate icon"
+      type="image/x-icon"
+      href="/favicon.ico" />
+
+<link rel="apple-touch-icon"
+      href="/images/apple-touch-icon.png" />
+
     <link rel="stylesheet" href="~/css/flowdo.css"
           asp-append-version="true" />
 </head>
@@ -38,10 +49,11 @@
 <div class="fd-app">
 
     <header class="fd-header">
-        <a href="/tasks" class="fd-brand">
-            <span class="fd-brand-icon">F</span>
-            <span>flowdo<span class="fd-dot">.</span></span>
-        </a>
+        <a href="/" class="fd-brand" aria-label="Flowdo Home">
+    <img src="/images/flowdo-logo.svg"
+         alt="Flowdo"
+         class="fd-brand-logo" />
+</a>
 
         <div class="fd-profile">
             <span class="fd-user-name">
@@ -296,9 +308,7 @@
 
     </main>
 
-    <footer class="fd-footer">
-        Flowdo · Personal Task Management
-    </footer>
+    <partial name="_Footer" />
 
 </div>
 </body>
