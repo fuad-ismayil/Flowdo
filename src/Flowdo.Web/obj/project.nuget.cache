@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mC0pWKMrDFQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Fuad\\Desktop\\flowdo\\src\\Flowdo.Web\\Flowdo.Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Fuad\\.nuget\\packages\\dapper\\2.1.89\\dapper.2.1.89.nupkg.sha512",
+    "C:\\Users\\Fuad\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
