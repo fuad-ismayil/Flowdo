@@ -1,0 +1,62 @@
+@model Flowdo.Web.ViewModels.EditTaskInput
+
+@{
+    ViewData["Title"] = "Edit Task";
+}
+
+<div class="container py-4">
+
+    <h1>Edit Task</h1>
+
+    <p class="text-muted">
+        Editing a task will reset its status to To Do.
+    </p>
+
+    <form asp-controller="Tasks"
+          asp-action="Edit"
+          asp-route-id="@Model.Id"
+          method="post">
+
+        @Html.AntiForgeryToken()
+
+        <input asp-for="Id" type="hidden" />
+
+        <div asp-validation-summary="All"
+             class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Title"
+                   class="form-label"></label>
+
+            <input asp-for="Title"
+                   class="form-control"
+                   maxlength="160" />
+
+            <span asp-validation-for="Title"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description"
+                   class="form-label"></label>
+
+            <textarea asp-for="Description"
+                      class="form-control"
+                      maxlength="3000"></textarea>
+
+            <span asp-validation-for="Description"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary">
+            Save Changes
+        </button>
+
+        <a href="/tasks"
+           class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+
+</div>

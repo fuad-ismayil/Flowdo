@@ -99,3 +99,4 @@ C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\bin\Debug\net10.0\Dapper.dll
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\bin\Debug\net10.0\Npgsql.dll
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\Flowdo.Web.csproj.AssemblyReference.cache
 C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\obj\Debug\net10.0\Flowdo.Web.csproj.Up2Date
+C:\Users\Fuad\Desktop\flowdo\src\Flowdo.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Google.dll

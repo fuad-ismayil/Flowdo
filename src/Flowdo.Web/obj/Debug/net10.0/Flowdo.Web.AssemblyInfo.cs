@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Flowdo.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c5cbb167fe55830aa8d791e14502d888a744012")]
 [assembly: System.Reflection.AssemblyProductAttribute("Flowdo.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Flowdo.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,6 +9,7 @@
       "Flowdo.Web/1.0.0": {
         "dependencies": {
           "Dapper": "2.1.89",
+          "Microsoft.AspNetCore.Authentication.Google": "10.0.13",
           "Npgsql": "10.0.3"
         },
         "runtime": {
@@ -20,6 +21,14 @@
           "lib/net10.0/Dapper.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.1.89.60231"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/10.0.13": {
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "10.0.13.0",
+            "fileVersion": "10.0.1326.50504"
           }
         }
       },
@@ -45,6 +54,13 @@
       "sha512": "sha512-1VjFE664wnxvuhlgP8kS4PeFFF4jqD3VkbIHW6Zlc52zuibgcz5ICnIHcQXlTp6pURpPNGLV0ZpNe5x9KePJnA==",
       "path": "dapper/2.1.89",
       "hashPath": "dapper.2.1.89.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/10.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H3tEQnb1HNIW1Wk9MP2wFa0n5VHKBXNFGE4EVV84w7GWB4LnxqFkjffA3TQQnAYA93iZsubFTqk4AkizvoPAmA==",
+      "path": "microsoft.aspnetcore.authentication.google/10.0.13",
+      "hashPath": "microsoft.aspnetcore.authentication.google.10.0.13.nupkg.sha512"
     },
     "Npgsql/10.0.3": {
       "type": "package",
